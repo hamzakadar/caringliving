@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caring Living Services | Reliable Care You Can Trust</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap');
+
+  :root {
+    --ivory: #F9F6F0;
+    --white: #FEFCF8;
+    --linen: #EDE8DF;
+    --stone: #D4CEC4;
+    --umber: #8C7355;
+    --umber-dark: #6B5540;
+    --umber-pale: #F2EBE0;
+    --burgundy: #7D3B3B;
+    --burgundy-dark: #5E2929;
+    --burgundy-pale: #F5EAEA;
+    --charcoal: #2E2926;
+    --slate: #6E6560;
+    --gap: 108px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--ivory);
+    color: var(--charcoal);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 52px;
+    background: rgba(249,246,240,0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--stone);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 36px rgba(46,41,38,0.08); }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand-mark {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: var(--burgundy);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .brand-mark svg { width: 18px; height: 18px; }
+  .brand-text {}
+  .brand-name {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--charcoal);
+    display: block;
+    line-height: 1.1;
+  }
+  .brand-sub {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--umber);
+    display: block;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 34px;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--slate);
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1.5px;
+    background: var(--burgundy);
+    transition: width 0.25s;
+  }
+  .nav-links a:hover { color: var(--charcoal); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    background: var(--burgundy) !important;
+    color: #fff !important;
+    padding: 10px 22px !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.04em !important;
+    transition: background 0.2s, transform 0.15s !important;
+    box-shadow: 0 3px 12px rgba(125,59,59,0.25) !important;
+  }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--burgundy-dark) !important; transform: translateY(-1px) !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px; height: 1.5px;
+    background: var(--charcoal);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    padding-top: 72px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--white);
+  }
+
+  .hero-stripe {
+    position: absolute;
+    top: 0; right: 0;
+    width: 42%;
+    height: 100%;
+    background: var(--linen);
+    z-index: 0;
+  }
+  .hero-stripe::before {
+    content: '';
+    position: absolute;
+    left: -60px; top: 0; bottom: 0;
+    width: 120px;
+    background: linear-gradient(90deg, var(--white), var(--linen));
+  }
+
+  .hero-dots {
+    position: absolute;
+    right: 38%;
+    bottom: 15%;
+    width: 100px; height: 100px;
+    background-image: radial-gradient(circle, var(--stone) 1.5px, transparent 1.5px);
+    background-size: 12px 12px;
+    opacity: 0.6;
+    z-index: 1;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 80px 52px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 56px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--burgundy-pale);
+    color: var(--burgundy);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 100px;
+    border: 1px solid rgba(125,59,59,0.18);
+    margin-bottom: 28px;
+  }
+  .hero-badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--burgundy);
+    animation: blink 2.2s infinite;
+  }
+  @keyframes blink {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .hero-h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(38px, 4.5vw, 60px);
+    font-weight: 700;
+    line-height: 1.12;
+    color: var(--charcoal);
+    letter-spacing: -0.02em;
+    margin-bottom: 22px;
+  }
+  .hero-h1 .accent { color: var(--burgundy); font-style: italic; font-weight: 400; }
+
+  .hero-sub {
+    font-size: 16.5px;
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.85;
+    max-width: 460px;
+    margin-bottom: 42px;
+  }
+
+  .hero-actions { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--burgundy);
+    color: #fff;
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 16px 34px;
+    border-radius: 8px;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 6px 24px rgba(125,59,59,0.3);
+  }
+  .btn-primary:hover {
+    background: var(--burgundy-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 36px rgba(125,59,59,0.4);
+  }
+  .btn-primary svg { transition: transform 0.2s; }
+  .btn-primary:hover svg { transform: translateX(4px); }
+
+  .hero-tel {
+    font-size: 14px;
+    color: var(--slate);
+  }
+  .hero-tel a { color: var(--charcoal); font-weight: 600; text-decoration: none; }
+  .hero-tel a:hover { color: var(--burgundy); }
+
+  .hero-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hcard {
+    background: #fff;
+    border: 1px solid var(--stone);
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 2px 16px rgba(46,41,38,0.05);
+    animation: float 5s ease-in-out infinite;
+  }
+  .hcard:nth-child(2) { animation-delay: 1.6s; margin-left: 24px; }
+  .hcard:nth-child(3) { animation-delay: 3.2s; }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+  }
+  .hcard-icon {
+    width: 46px; height: 46px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .hi-burg { background: var(--burgundy-pale); }
+  .hi-umb { background: var(--umber-pale); }
+  .hi-lin { background: var(--linen); }
+  .hcard-text strong {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 2px;
+  }
+  .hcard-text span { font-size: 12px; color: var(--slate); font-weight: 300; }
+
+  /* ── SERVICES ── */
+  #services {
+    background: var(--linen);
+    padding: var(--gap) 0;
+  }
+  .svc-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 52px;
+  }
+  .sec-hd { text-align: center; margin-bottom: 60px; }
+  .sec-label {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--umber);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .sec-label::before, .sec-label::after {
+    content: '';
+    width: 24px; height: 1px;
+    background: var(--umber);
+  }
+  .sec-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(30px, 3.2vw, 44px);
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+  }
+
+  .svc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .svc-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 38px 30px;
+    border: 1px solid rgba(212,206,196,0.6);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.26s, box-shadow 0.26s;
+  }
+  .svc-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--burgundy), #C47272);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .svc-card:hover { transform: translateY(-7px); box-shadow: 0 18px 52px rgba(46,41,38,0.1); }
+  .svc-card:hover::before { transform: scaleX(1); }
+  .svc-icon-wrap {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    background: var(--burgundy-pale);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    margin-bottom: 22px;
+  }
+  .svc-card h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .svc-card p {
+    font-size: 14.5px;
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.8;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--charcoal);
+    padding: var(--gap) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-glow {
+    position: absolute;
+    right: -80px; top: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(140,115,85,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .about-glow2 {
+    position: absolute;
+    left: -60px; bottom: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(125,59,59,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .about-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 52px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .about-label {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--umber);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .about-label::before { content: ''; width: 24px; height: 1px; background: var(--umber); }
+  .about-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(30px, 3.2vw, 44px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    margin-bottom: 22px;
+  }
+  .about-text {
+    font-size: 15.5px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.62);
+    line-height: 1.9;
+    margin-bottom: 34px;
+  }
+  .waivers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .waiver-pill {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 11px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.75);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .waiver-pill::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--umber);
+    flex-shrink: 0;
+  }
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .stat-box {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 28px 22px;
+    transition: background 0.2s;
+  }
+  .stat-box:hover { background: rgba(255,255,255,0.09); }
+  .stat-box .ico { font-size: 26px; margin-bottom: 12px; }
+  .stat-box h4 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .stat-box p { font-size: 12.5px; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.5; }
+
+  /* ── PROGRAM ── */
+  #program {
+    background: var(--ivory);
+    padding: var(--gap) 0;
+  }
+  .prog-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 52px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .prog-left .sec-label { justify-content: flex-start; }
+  .prog-left .sec-label::before { display: none; }
+  .prog-left .sec-title { text-align: left; margin-bottom: 20px; }
+  .prog-desc {
+    font-size: 15.5px;
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.9;
+  }
+  .prog-panel {
+    background: linear-gradient(148deg, var(--burgundy-pale) 0%, #EDD8D8 100%);
+    border-radius: 24px;
+    padding: 44px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .prog-panel::after {
+    content: '';
+    position: absolute;
+    bottom: -50px; right: -50px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(125,59,59,0.1);
+    pointer-events: none;
+  }
+  .prog-panel h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--burgundy-dark);
+    margin-bottom: 26px;
+  }
+  .prog-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+  }
+  .prog-items li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14.5px;
+    font-weight: 400;
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+  .prog-items li .chk {
+    flex-shrink: 0;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--burgundy);
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+  .prog-items li .chk::after {
+    content: '';
+    width: 5px; height: 8px;
+    border: 1.5px solid #fff;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg) translateY(-1px) translateX(1px);
+    display: block;
+  }
+
+  /* ── LOCATIONS ── */
+  #locations {
+    background: var(--linen);
+    padding: var(--gap) 0;
+  }
+  .loc-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 52px;
+  }
+  .loc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 660px;
+    margin: 0 auto;
+  }
+  .loc-card {
+    background: var(--white);
+    border: 1px solid var(--stone);
+    border-radius: 18px;
+    padding: 34px 28px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .loc-card:hover { transform: translateY(-5px); box-shadow: 0 12px 38px rgba(46,41,38,0.09); }
+  .loc-icon {
+    width: 50px; height: 50px;
+    border-radius: 12px;
+    background: var(--umber-pale);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .loc-card h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 3px;
+  }
+  .loc-card span { font-size: 13px; color: var(--slate); font-weight: 300; }
+
+  /* ── REFERRAL ── */
+  #referral {
+    background: var(--white);
+    padding: var(--gap) 0;
+  }
+  .ref-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 52px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .ref-left .sec-label { justify-content: flex-start; }
+  .ref-left .sec-label::before { display: none; }
+  .ref-left .sec-title { text-align: left; margin-bottom: 16px; }
+  .ref-desc { font-size: 15.5px; font-weight: 300; color: var(--slate); line-height: 1.9; margin-bottom: 32px; }
+  .contacts { display: flex; flex-direction: column; gap: 14px; }
+  .citem { display: flex; align-items: center; gap: 14px; font-size: 14px; color: var(--slate); }
+  .citem a { color: var(--charcoal); font-weight: 600; text-decoration: none; }
+  .citem a:hover { color: var(--burgundy); }
+  .citem-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: var(--burgundy-pale);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px;
+    flex-shrink: 0;
+  }
+  .ref-embed-wrap {
+    background: var(--white);
+    border-radius: 22px;
+    border: 1px solid var(--stone);
+    overflow: hidden;
+    box-shadow: 0 8px 48px rgba(46,41,38,0.09);
+  }
+  .embed-hd {
+    background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+    padding: 26px 30px;
+    color: #fff;
+  }
+  .embed-hd h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .embed-hd p { font-size: 13px; opacity: 0.8; font-weight: 300; }
+  .embed-frame { width: 100%; height: 700px; border: none; display: block; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    padding: 58px 52px 30px;
+  }
+  .foot-inner { max-width: 1180px; margin: 0 auto; }
+  .foot-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 56px;
+    padding-bottom: 38px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    margin-bottom: 26px;
+  }
+  .foot-brand .brand-name { color: #fff; font-size: 19px; }
+  .foot-brand .brand-sub { color: var(--umber); }
+  .foot-brand p {
+    font-size: 13.5px; font-weight: 300;
+    color: rgba(255,255,255,0.42);
+    margin-top: 12px;
+    max-width: 270px;
+    line-height: 1.8;
+  }
+  .foot-col h4 {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.32);
+    margin-bottom: 16px;
+  }
+  .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .foot-col ul a { font-size: 13.5px; font-weight: 300; color: rgba(255,255,255,0.58); text-decoration: none; transition: color 0.2s; }
+  .foot-col ul a:hover { color: var(--umber); }
+  .foot-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+  .foot-bottom p { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.26); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 920px) {
+    nav { padding: 0 22px; }
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--ivory); border-bottom: 1px solid var(--stone); padding: 22px; gap: 18px; box-shadow: 0 8px 28px rgba(46,41,38,0.08); }
+    .nav-links.open { display: flex; }
+    .hamburger { display: flex; }
+    .hero-inner { grid-template-columns: 1fr; padding: 56px 22px; gap: 0; }
+    .hero-stripe { display: none; }
+    .hero-dots { display: none; }
+    .hero-cards { display: none; }
+    .svc-inner, .about-inner, .prog-inner, .loc-inner, .ref-inner { padding: 0 22px; }
+    footer { padding: 44px 22px 26px; }
+    .svc-grid { grid-template-columns: 1fr; }
+    .about-inner { grid-template-columns: 1fr; gap: 44px; }
+    .waivers { grid-template-columns: 1fr 1fr; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+    .prog-inner { grid-template-columns: 1fr; gap: 40px; }
+    .loc-grid { grid-template-columns: 1fr; max-width: 100%; }
+    .ref-inner { grid-template-columns: 1fr; gap: 44px; }
+    .foot-top { grid-template-columns: 1fr; gap: 28px; }
+    .embed-frame { height: 560px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-brand">
+    <div class="brand-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    </div>
+    <div class="brand-text">
+      <span class="brand-name">Caring Living Services</span>
+      <span class="brand-sub">Care &amp; Assisted Living</span>
+    </div>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#program">Program</a></li>
+    <li><a href="#locations">Locations</a></li>
+    <li><a href="https://form.jotform.com/info_info829_Manager/caringlivingservices" target="_blank" class="nav-cta">Referral</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-stripe"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><div class="hero-badge-dot"></div>24-Hour Personalized Care</div>
+      <h1 class="hero-h1">Reliable Care<br><span class="accent">You Can Trust</span></h1>
+      <p class="hero-sub">At Caring Living Services, we provide 24-hour customized and assisted living solutions designed to support individuals with dignity, comfort, and personalized attention.</p>
+      <div class="hero-actions">
+        <a href="https://form.jotform.com/info_info829_Manager/caringlivingservices" target="_blank" class="btn-primary">
+          Refer Someone Today
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <div class="hero-tel">Call: <a href="tel:6122853952">(612) 285-3952</a></div>
+      </div>
+    </div>
+    <div class="hero-cards">
+      <div class="hcard">
+        <div class="hcard-icon hi-burg">❤️</div>
+        <div class="hcard-text">
+          <strong>Compassionate Staff</strong>
+          <span>Trained professionals who truly care</span>
+        </div>
+      </div>
+      <div class="hcard">
+        <div class="hcard-icon hi-umb">📋</div>
+        <div class="hcard-text">
+          <strong>Waiver-Supported Care</strong>
+          <span>CADI, BI, DD &amp; Elderly Waivers</span>
+        </div>
+      </div>
+      <div class="hcard">
+        <div class="hcard-icon hi-lin">🏡</div>
+        <div class="hcard-text">
+          <strong>Residential Comfort</strong>
+          <span>Safe, home-like environments</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="svc-inner">
+    <div class="sec-hd">
+      <div class="sec-label">What We Offer</div>
+      <h2 class="sec-title">Our Care Services</h2>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-icon-wrap">🛁</div>
+        <h3>Personal Care Assistance</h3>
+        <p>We support daily living activities such as bathing, dressing, and grooming while maintaining the dignity and independence of every individual in our care.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon-wrap">💊</div>
+        <h3>Medication Management</h3>
+        <p>Professional support to ensure medications are taken safely, accurately, and on schedule — managed by trained staff with careful attention to each resident's needs.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon-wrap">📝</div>
+        <h3>Customized Support</h3>
+        <p>Individualized care plans in smaller residential settings that provide the right balance of independence and support, tailored specifically to each person.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-glow"></div>
+  <div class="about-glow2"></div>
+  <div class="about-inner">
+    <div>
+      <div class="about-label">Who We Serve</div>
+      <h2 class="about-title">Specialized Care<br>Programs</h2>
+      <p class="about-text">Caring Living Services is dedicated to simplifying care through comprehensive residential and in-home support. We serve individuals utilizing CADI, Brain Injury (BI), Developmental Disabilities (DD), and Elderly Waivers.</p>
+      <div class="waivers">
+        <div class="waiver-pill">CADI Waiver</div>
+        <div class="waiver-pill">Brain Injury (BI)</div>
+        <div class="waiver-pill">Developmental Disabilities</div>
+        <div class="waiver-pill">Elderly Waiver</div>
+      </div>
+    </div>
+    <div class="about-stats">
+      <div class="stat-box">
+        <div class="ico">🕐</div>
+        <h4>24 / 7</h4>
+        <p>Around-the-clock care and support</p>
+      </div>
+      <div class="stat-box">
+        <div class="ico">🏡</div>
+        <h4>Home-Like</h4>
+        <p>Comfortable residential environments</p>
+      </div>
+      <div class="stat-box">
+        <div class="ico">🤝</div>
+        <h4>Person-First</h4>
+        <p>Care plans built for each individual</p>
+      </div>
+      <div class="stat-box">
+        <div class="ico">✅</div>
+        <h4>Waiver-Ready</h4>
+        <p>All major MN waivers accepted</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section id="program">
+  <div class="prog-inner">
+    <div class="prog-left">
+      <div class="sec-label">Our Program</div>
+      <h2 class="sec-title">Customized &amp;<br>Assisted Living</h2>
+      <p class="prog-desc">We offer 24-hour customized living services for adults with physical and/or mental disabilities in safe, supportive environments designed to improve quality of life. Our team works alongside each resident and their family to build care plans that truly fit their life and goals.</p>
+    </div>
+    <div class="prog-panel">
+      <h3>Program Highlights</h3>
+      <ul class="prog-items">
+        <li><span class="chk"></span>24-hour on-site support and supervision</li>
+        <li><span class="chk"></span>Individualized care planning and goal-setting</li>
+        <li><span class="chk"></span>Comfortable, residential home environments</li>
+        <li><span class="chk"></span>Community integration and daily activities</li>
+        <li><span class="chk"></span>Transportation assistance and coordination</li>
+        <li><span class="chk"></span>Family communication and regular updates</li>
+        <li><span class="chk"></span>Skilled staff trained in disability care</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section id="locations">
+  <div class="loc-inner">
+    <div class="sec-hd">
+      <div class="sec-label">Where We Are</div>
+      <h2 class="sec-title">Our Locations</h2>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-card">
+        <div class="loc-icon">📍</div>
+        <div>
+          <h3>St. Paul</h3>
+          <span>Minnesota</span>
+        </div>
+      </div>
+      <div class="loc-card">
+        <div class="loc-icon">📍</div>
+        <div>
+          <h3>Maplewood</h3>
+          <span>Minnesota</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERRAL -->
+<section id="referral">
+  <div class="ref-inner">
+    <div class="ref-left">
+      <div class="sec-label">Get In Touch</div>
+      <h2 class="sec-title">Make a<br>Referral</h2>
+      <p class="ref-desc">Ready to connect someone with caring, professional support? Use the referral form or reach out to us directly — we respond promptly to every inquiry.</p>
+      <div class="contacts">
+        <div class="citem">
+          <div class="citem-icon">📞</div>
+          <span>Call us at <a href="tel:6122853952">(612) 285-3952</a></span>
+        </div>
+        <div class="citem">
+          <div class="citem-icon">✉️</div>
+          <span><a href="mailto:referrals@caringlivingservices.com">referrals@caringlivingservices.com</a></span>
+        </div>
+        <div class="citem">
+          <div class="citem-icon">🕐</div>
+          <span>Available 24/7 for urgent care needs</span>
+        </div>
+      </div>
+    </div>
+    <div class="ref-embed-wrap">
+      <div class="embed-hd">
+        <h3>Referral Form</h3>
+        <p>Our care team will follow up within 24 hours.</p>
+      </div>
+      <iframe
+        class="embed-frame"
+        src="https://form.jotform.com/info_info829_Manager/caringlivingservices"
+        title="Caring Living Services Referral Form"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="nav-brand">
+          <div class="brand-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name" style="color:#fff;">Caring Living Services</span>
+            <span class="brand-sub">Care &amp; Assisted Living</span>
+          </div>
+        </div>
+        <p>Providing 24-hour customized and assisted living solutions with dignity, comfort, and personalized attention in St. Paul and Maplewood, MN.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#program">Program</a></li>
+          <li><a href="#locations">Locations</a></li>
+          <li><a href="https://form.jotform.com/info_info829_Manager/caringlivingservices" target="_blank">Referral Form</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:6122853952">(612) 285-3952</a></li>
+          <li><a href="mailto:referrals@caringlivingservices.com" style="font-size:12px;">referrals@caringlivingservices.com</a></li>
+          <li><a href="#">St. Paul, MN</a></li>
+          <li><a href="#">Maplewood, MN</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2025 Caring Living Services. All rights reserved.</p>
+      <p>Serving St. Paul &amp; Maplewood, Minnesota</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.svc-card, .stat-box, .loc-card, .hcard').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
